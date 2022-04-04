@@ -1,38 +1,122 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3{
+  text-transform: capitalize;
+}
+
+h1{font-size: 2.5rem;}
+
+h2{font-size: 1.75rem;}
+
+p{font-size: .9rem; color: rgb(87, 74, 74);}
+
+hr{
+  border: 0.5px solid #E5E5E5
+}
+
+ul{
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+img{
+  height: 100%;
+}
+
+
+.pokecontainer{
+  text-align: center;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+  left: 10%;
+}
+
+.pokeCards{
+  width: 23%;
+  margin: 30px .5%; 
+  border-radius: 15px;
+  border: solid 3px green;
+  background: linear-gradient(180deg, #792525 0%, #fc6f6f 30%, #ffffff 31%, #fff 100%);
+}
+
+.pokeCardInfo > figure{
+  height: 200px;
+}
+
+.pokeCardStats{
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.pokeCardStats > div{
+  width: 48%;
+}
+
+.pokeInfo{
+  width: 80%;
+  position: relative;
+  left: 10%;
+}
+
+.pokeInfoHeader{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.pokeInfoHeader > h1::after,
+.pokeInfoHeader > h1::before{
+  content: " ---------------------- ";
+  font-weight: 400;
+  color: gray;
+  letter-spacing: -2px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.pokeInfoHeader > section{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 3rem;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.stats{
+  width: 50%;
+  position: relative;
+  left: 25%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.movements{
+  width: 70%;
+  position: relative;
+  left: 15%;
+}
+
+.movements > article {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.movements > article > p {
+  background-color: #E5E5E5;
+  border-radius: 50px;
+  padding: .5rem 1rem;
+  margin: .3rem;
 }
