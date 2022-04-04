@@ -17,8 +17,6 @@ export const PokeInfo = () => {
         )
     },[id]);
 
-    console.log(pokeInfo);
-
     return (
     <div className='pokeInfo'>
         <section>
