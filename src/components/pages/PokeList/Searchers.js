@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-export const Searchers = ({ types }) => {
+export const Searchers = ({ types, setPage }) => {
 
     const [id_nom, setId_nom] = useState(""); 
 
@@ -16,10 +16,11 @@ export const Searchers = ({ types }) => {
     }
 
     const selectedType = e =>{
-            dispatch({
-                type: "GET_TYPE",
-                payload: e.target.value
-            });
+        setPage(1);
+        dispatch({
+            type: "GET_TYPE",
+            payload: e.target.value
+        });
     }
 
     return (

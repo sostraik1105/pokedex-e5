@@ -15,6 +15,13 @@ export const Pokemons = () => {
 
     const [pokemonList, setPokemonList] = useState([]);
 
+    const [page, setPage] = useState(1);
+    const itemsNumber = 8;
+    const lastIndex = page*itemsNumber;
+    const firstIndex = lastIndex - itemsNumber;
+    const pokemonPaginated = pokemonList?.slice(firstIndex, lastIndex);
+    const totalPages = Math.ceil(pokemonList?.length / itemsNumber);
+
     useEffect(()=>{
 
         axios.get('https://pokeapi.co/api/v2/type/')
@@ -39,11 +46,11 @@ export const Pokemons = () => {
         <h1>Welcome {userName}</h1>
         
         <div>
-            <Searchers types={types.results} />
+            <Searchers types={types.results} setPage={setPage}/>
         </div>
 
         <ul className='pokecontainer'>
-            { pokemonList.map(el => (
+            { pokemonPaginated.map(el => (
                 <li key={el.name ? el.name : el.pokemon.name} className='pokeCards'>
                     <Link to={`/pokemon/${el.name ? el.name : el.pokemon.name}`}>
                         <PokemonCard key={el.name ? el.name : el.pokemon.name} url={el.url ? el.url : el.pokemon.url}/>
@@ -51,6 +58,21 @@ export const Pokemons = () => {
                 </li>
             ))}
         </ul>
+
+        <div>
+            <button 
+                onClick={()=> setPage(page - 1)}
+                disabled={page<=1}
+            >
+                Anterior
+            </button>
+            <button 
+                onClick={()=> setPage(page + 1)}
+                disabled={page >= totalPages}
+            >
+                siguiente
+            </button>
+        </div>
     </>
     )
 }
